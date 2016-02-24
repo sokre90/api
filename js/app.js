@@ -12,6 +12,6 @@
             });
             request.execute(function(response) {
                     var str = JSON.stringify(response.result);
-                    $('#search-results').html('<pre>' + str + '</pre>');
+                    $('#search-results').html('<p>' + str + '</p>');
             });
     }
