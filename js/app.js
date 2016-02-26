@@ -18,11 +18,27 @@ function makeRequest() {
                     maxResults: 5,
                     type: 'video' });
 
-	    request.execute (function(item) {	
-		    var str = JSON.stringify(item.items[0].snippet.title);
-	    	$('#search-results').append('<p>' + str + '</p>');
-  	
-	    });
+ 	
+	    request.execute(function(item) {	
+	    	
+	    	var titles = [];  
+	    	var thumbnails = [];
+	    	var videoURL = [];
+	    	var baseURL = 'https://www.youtube.com/watch?v=';
+
+  			JSON.stringify(item.items);
+  			// console.log(item.items);
+	  		for (var i = 0; i < item.items.length; i++){
+
+	  			titles.push(item.items[i].snippet.title);
+	  			thumbnails.push(item.items[i].snippet.thumbnails.medium.url);
+	  			videoURL.push(item.items[i].id.videoId);
+	  			
+	  			$('#search-results').append('<p>' +titles[i]+ '</p>' + '<a href='+baseURL + videoURL[i]+'><img src='+thumbnails[i]+'></a>' + '<br>');
+	  		}  		   	
+  		   	
+
+	    }); 
 } 
 
 	
