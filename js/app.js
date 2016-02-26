@@ -6,7 +6,7 @@ function searchKeyword() {
        		makeRequest();
         		
         });
-
+        $('#search-results').empty();
 }
 
 function makeRequest() {
@@ -15,8 +15,7 @@ function makeRequest() {
         var request = gapi.client.youtube.search.list ({
                     q: searchTerm,
                     part: 'snippet',
-                    maxResults: 5,
-                    type: 'video' });
+                    maxResults: 20 });
 
  	
 	    request.execute(function(item) {	
@@ -34,7 +33,7 @@ function makeRequest() {
 	  			thumbnails.push(item.items[i].snippet.thumbnails.medium.url);
 	  			videoURL.push(item.items[i].id.videoId);
 	  			
-	  			$('#search-results').append('<p>' +titles[i]+ '</p>' + '<a href='+baseURL + videoURL[i]+'><img src='+thumbnails[i]+'></a>' + '<br>');
+	  			$('#search-results').append('<div><a href='+baseURL + videoURL[i]+'>' +titles[i]+ '</a>'+'<br>'+'<a href='+baseURL + videoURL[i]+'><img src='+thumbnails[i]+'></a></div>');
 	  		}  		   	
   		   	
 

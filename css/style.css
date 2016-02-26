@@ -1,0 +1,31 @@
+html {
+	background-color: lightgrey;
+}
+h1 {
+	text-align: center;
+}
+
+#search-term {
+	display: flex;
+	justify-content: center;
+}
+
+#search-results  {
+	margin-top: 5%;
+	/*max-width: 50%;*/
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+a {
+/*	text-decoration: none;
+*/	color: black;
+}
+a:hover {
+	color: deeppink;
+	text-decoration: none;
+}
+
